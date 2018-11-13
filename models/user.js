@@ -15,11 +15,15 @@ module.exports = (sequelize, DataTypes) => {
             },
             platform: {
                 allowNull: true, 
-                type: DataTypes.ENUM("XB1","PS4","PC")
+                type: DataTypes.ENUM("XB1","PS4","Blizzard.NET")
             },
             playlist: {
                 allowNull: true,
                 type: DataTypes.ENUM("Competitive", "Casual")
+            },
+            mic: {
+                allowNull: true,
+                type: DataTypes.ENUM("MIC","NO-MIC")
             },
             text: {
                 allowNull: true,

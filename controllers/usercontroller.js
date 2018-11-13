@@ -8,8 +8,8 @@ let validateSession = require('../middleware/validate-session')
 
 router.post('/signup', (req, res) => {
     User.create({
-            username: req.body.username, // add req.body.user.username when merging with client
-            password: bcrypt.hashSync(req.body.password,10), // add req.body.user.password when merging with client
+            username: req.body.user.username, // add req.body.user.username when merging with client
+            password: bcrypt.hashSync(req.body.user.password,10), // add req.body.user.password when merging with client
     })
     .then(
         function signupSuccess (user) {
@@ -72,14 +72,15 @@ router.put('/update/:id', validateSession,(req, res) => {
         username: req.body.username,
         password: req.body.password,     
         game: req.body.game,
-        platform: req.body.platform,
         playlist: req.body.playlist,
+        platform: req.body.platform,
+        mic: req.body.mic,
         text: req.body.text
     },
     {
         where: {
-            id: req.params.id,
-            user: req.params.user
+            // id: req.params.id,
+            username: req.params.username
         }
     })
     .then(
@@ -98,11 +99,11 @@ router.put('/update/:id', validateSession,(req, res) => {
     )
 })
 
-router.delete('/delete/:id', validateSession,(req, res) => {
+router.delete('/delete/:username', validateSession,(req, res) => {
     User.destroy({
         where: {
             id: req.params.id,
-            user: req.params.user
+            username: req.params.username
         }
     })
     .then(
