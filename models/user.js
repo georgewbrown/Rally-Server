@@ -8,28 +8,8 @@ module.exports = (sequelize, DataTypes) => {
         password: {
             type: DataTypes.STRING,
             allowNull: false,
-        },
-            game:{
-                allowNull: true,
-                type: DataTypes.ENUM("Overwatch","Destiny 2","SMITE")
-            },
-            platform: {
-                allowNull: true, 
-                type: DataTypes.ENUM("XB1","PS4","Blizzard.NET")
-            },
-            playlist: {
-                allowNull: true,
-                type: DataTypes.ENUM("Competitive", "Casual")
-            },
-            mic: {
-                allowNull: true,
-                type: DataTypes.ENUM("MIC","NO-MIC")
-            },
-            text: {
-                allowNull: true,
-                type: DataTypes.CHAR
-            }
-        })
+        }
+    })
     
 return User;
 }

@@ -71,11 +71,6 @@ router.put('/update/:id', validateSession,(req, res) => {
     User.update({
         username: req.body.username,
         password: req.body.password,     
-        game: req.body.game,
-        playlist: req.body.playlist,
-        platform: req.body.platform,
-        mic: req.body.mic,
-        text: req.body.text
     },
     {
         where: {
