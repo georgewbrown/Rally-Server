@@ -10,7 +10,7 @@ sequelize.authenticate().then(
         console.log('Connected to blue-badge-database postgres database');
     },
     function(err){
-        console.log("Error")
+        console.log("Error");
         console.log(err);
     }
    
